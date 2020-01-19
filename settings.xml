@@ -1,0 +1,52 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                              https://maven.apache.org/xsd/settings-1.0.0.xsd">
+    
+	<proxies>
+	   <proxy>
+		  <id>amdocs</id>
+		  <active>true</active>
+		  <protocol>http</protocol>
+		  <host>genproxy.amdocs.com</host>
+		  <port>8080</port>
+		  <username>drortz</username>
+		  <password>Aug20199</password>
+		  <nonProxyHosts>www.google.com|*.example.com</nonProxyHosts>
+		</proxy>
+  </proxies>
+  
+	<profiles>
+        <profile>
+            <id>securecentral</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <!--Override the repository (and pluginRepository) "central" from the
+               Maven Super POM -->
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <url>https://repo1.maven.org/maven2</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </repository>
+				<repository>
+					<id>jahia</id>
+					<url>http://maven.jahia.org/maven2/</url>
+				</repository>
+				
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>central</id>
+                    <url>https://repo1.maven.org/maven2</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+</settings>
